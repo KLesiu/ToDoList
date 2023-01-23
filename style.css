@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  min-height: 100vh;
+  padding: 10px;
+  width: 100vw;
+}
+header {
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+  justify-content: flex-start;
+  min-height: 20%;
+  padding: 10px;
+  width: 100%;
+}
+header h1 {
+  border-bottom: 2px rgb(255, 255, 255) solid;
+  margin-left: 20px;
+}
+header span {
+  color: green;
+}
+.container {
+  display: flex;
+  height: 70%;
+}
+nav {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+  text-align: left;
+  padding: 10px;
+  width: 20%;
+}
+nav h2 {
+  font-size: 30px;
+  border-bottom: 3px solid black;
+}
+nav ul {
+  margin-top: 10px;
+  list-style-type: none;
+}
+ul > li {
+  cursor: pointer;
+  margin-top: 10px;
+}
+ul > li:hover {
+  color: rgb(163, 97, 10);
+}
+ul h3 {
+  display: flex;
+}
+button {
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+#buttonTask {
+  background-color: green;
+  margin-top: 70%;
+}
+#buttonProject {
+  background-color: rgb(18, 94, 156);
+}
+#buttonTask:hover {
+  background-color: rgb(29, 218, 38);
+  color: black;
+}
+#buttonProject:hover {
+  background-color: rgb(43, 177, 187);
+  color: black;
+}
+main {
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  margin-top: 10px;
+  min-height: 75%;
+  width: 80%;
+}
+.task {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  width: 20%;
+  height: 200px;
+}
+
+.projectContainer {
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+.form {
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  background-color: white;
+  color: black;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 5%;
+  width: 70%;
+}
+.form h2 {
+  height: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+#firstInput {
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 30px;
+  height: 50px;
+  width: 30%;
+}
+.form label {
+  width: 50%;
+}
+.form input {
+  width: 50%;
+}
+.formButton {
+  background-color: black;
+  border: 2px solid white;
+}
+.formButton:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.hidden {
+  display: none;
+}

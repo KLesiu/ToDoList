@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <title>ToDOList by Lesiuuu</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span style="font-size: 40px" class="material-symbols-outlined">
+          done </span
+        >To<span>DO</span>List by Lesiuuu
+      </h1>
+    </header>
+    <div class="container">
+      <nav>
+        <h2>MENU</h2>
+        <ul>
+          <li>Today Tasks</li>
+          <li>Week Tasks</li>
+          <li id="allTasks">All Tasks</li>
+        </ul>
+        <ul class="projectList">
+          <h3>
+            Projects
+            <span class="material-symbols-outlined"> expand_more </span>
+          </h3>
+
+          <li>Default</li>
+        </ul>
+        <button id="buttonTask">Add Task</button>
+        <button id="buttonProject">Start new project</button>
+      </nav>
+      <div class="form hidden">
+        <h2><input id="firstInput" type="text" name="name" value="Name" /></h2>
+        <label for="title">What do you have to do?</label>
+        <input type="text" name="title" />
+        <label for="description">Describe it a little longer</label>
+        <input type="text" name="description" id="" />
+        <label for="dueDate">How much time do you have?</label>
+        <input type="date" name="dueDate" id="" />
+        <label for="priority">Is it very important?</label>
+        <input type="checkbox" name="" id="" />
+        <button class="formButton" type="submit">ADD</button>
+      </div>
+
+      <main id="taskArea" class="hidden">
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+        <div class="task"></div>
+      </main>
+      <main id="projectArea" class="hidden">
+        <div class="projectContainer"></div>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
