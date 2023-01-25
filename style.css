@@ -97,9 +97,12 @@ main {
 .task {
   background-color: white;
   border-radius: 10px;
+  color: black;
+  height: 200px;
   margin: 10px;
   width: 20%;
-  height: 200px;
+  padding: 10px;
+  position: relative;
 }
 
 .projectContainer {
@@ -151,4 +154,35 @@ main {
 
 .hidden {
   display: none;
+}
+.project {
+  cursor: pointer;
+}
+.error {
+  color: red;
+  width: 100%;
+}
+
+.done {
+  color: green;
+  cursor: pointer;
+}
+.task button {
+  padding: 5px;
+  margin-top: 5%;
+}
+.task-delete {
+  background-color: red;
+}
+.task-edit {
+  background-color: orange;
+}
+ul {
+  list-style-type: none;
+}
+.task ul > li {
+  color: rgb(0, 0, 0);
+}
+.task h3 {
+  color: black;
 }

@@ -30,40 +30,34 @@
         <h2>MENU</h2>
         <ul>
           <li>Today Tasks</li>
-          <li>Week Tasks</li>
+
           <li id="allTasks">All Tasks</li>
         </ul>
         <ul class="projectList">
-          <h3>
+          <h3 class="project">
             Projects
             <span class="material-symbols-outlined"> expand_more </span>
           </h3>
-
-          <li>Default</li>
+          <div class="li-holder-project"><li>Default</li></div>
         </ul>
         <button id="buttonTask">Add Task</button>
         <button id="buttonProject">Start new project</button>
       </nav>
       <div class="form hidden">
         <h2><input id="firstInput" type="text" name="name" value="Name" /></h2>
-        <label for="title">What do you have to do?</label>
-        <input type="text" name="title" />
+
         <label for="description">Describe it a little longer</label>
-        <input type="text" name="description" id="" />
+        <input type="text" name="description" id="descriptionInput" />
         <label for="dueDate">How much time do you have?</label>
-        <input type="date" name="dueDate" id="" />
+        <input type="date" name="dueDate" id="taskDate" />
         <label for="priority">Is it very important?</label>
-        <input type="checkbox" name="" id="" />
+        <input type="text" name="priority" id="priorityInput" />
         <button class="formButton" type="submit">ADD</button>
+
+        <p class="error"></p>
       </div>
 
-      <main id="taskArea" class="hidden">
-        <div class="task"></div>
-        <div class="task"></div>
-        <div class="task"></div>
-        <div class="task"></div>
-        <div class="task"></div>
-      </main>
+      <main id="taskArea" class="hidden"></main>
       <main id="projectArea" class="hidden">
         <div class="projectContainer"></div>
       </main>
