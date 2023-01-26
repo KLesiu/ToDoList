@@ -8,6 +8,7 @@ const addTask = () => {
   const showForm = document.querySelector(".form");
   const showError = document.querySelector(".error");
   const main = document.querySelector("#taskArea");
+  const editFormButton = document.querySelector(".editFormButton");
   class Task {
     constructor(name, description, time, important) {
       this.name = name;
@@ -88,8 +89,21 @@ const addTask = () => {
       const deleteTask = document.querySelectorAll(".task-delete");
       deleteTask.forEach((element) => {
         element.addEventListener("click", () => {
+          // const popUpDelete = document.querySelector(".popUpDelete");
+          // popUpDelete.classList.remove("hidden");
+
           const parent = element.parentElement;
+          // const popUpDeleteYes = document.querySelector(".Yes-Delete");
+          // const popUpDeleteNo = document.querySelector(".No-Delete");
           main.removeChild(parent);
+          // popUpDeleteYes.addEventListener("click", () => {
+          //   popUpDelete.classList.add("hidden");
+
+          //   main.removeChild(parent);
+          // });
+          // popUpDeleteNo.addEventListener("click", () => {
+          //   popUpDelete.classList.add("hidden");
+          // });
         });
       });
       taskName.value = "";
@@ -99,6 +113,39 @@ const addTask = () => {
       showForm.classList.add("hidden");
       showTasks.classList.remove("hidden");
       showError.innerHTML = "";
+      const editTask = document.querySelectorAll(".task-edit");
+      editTask.forEach((element) => {
+        element.addEventListener("click", (e) => {
+          const parentEdit = e.target.parentElement;
+          editFormButton.classList.remove("hidden");
+          showForm.classList.remove("hidden");
+          showForm.classList.add("absolute");
+          editFormButton.addEventListener("click", () => {
+            const newChild = document.createElement("div");
+            newChild.classList.add("task");
+            newChild.innerHTML = `<h3>${taskName.value}</h3>
+                  <ul>
+                   <li>Task: ${taskName.value}</li>
+                   <li>Description: ${taskDescription.value}</li>
+                   <li>Time to: ${taskDate.value}</li>
+                   <li>Important: ${taskPriority.value}</li>
+ 
+                   </ul>
+                   <span style="position: absolute;
+                   top: 0;
+                   right: 10px;
+                   font-size: 30px;"  class="done material-symbols-outlined">
+                   done
+                   </span>
+             <button class="task-delete">Delete</button>
+             <button class="task-edit">Edit</button>
+                  `;
+            main.replaceChild(newChild, parentEdit);
+            showForm.classList.add("hidden");
+            showForm.classList.remove("absolute");
+          });
+        });
+      });
     }
   });
 };

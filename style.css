@@ -152,9 +152,6 @@ main {
   border: 2px solid black;
 }
 
-.hidden {
-  display: none;
-}
 .project {
   cursor: pointer;
 }
@@ -185,4 +182,54 @@ ul {
 }
 .task h3 {
   color: black;
+}
+.popUpDelete {
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0);
+
+  color: black;
+  display: flex;
+  height: 90%;
+
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  width: 90%;
+  z-index: 2;
+}
+.popUpDelete div {
+  background-color: gray;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 20%;
+  justify-content: space-around;
+  width: 20%;
+}
+.popUpDelete h3 {
+  font-size: 30px;
+  width: 100%;
+}
+.popUpDelete button {
+  border-radius: 10px;
+  color: black;
+  font-size: 25px;
+  width: 40%;
+  height: 50px;
+}
+.Yes-Delete {
+  background-color: green;
+}
+.No-Delete {
+  background-color: rgb(202, 202, 38);
+}
+.hidden {
+  display: none;
+}
+.absolute {
+  background-color: rgb(255, 255, 255);
+  left: 15%;
+  position: absolute;
+  top: 20%;
+  z-index: 2;
 }
