@@ -12,8 +12,9 @@ const addTask = () => {
   const todayTasksButton = document.querySelector("#todayTasks");
   const todayTasksArea = document.querySelector("#todayTaskArea");
   const showAllTasks = document.querySelector("#allTasks");
-
+  let allTasksHolder = [];
   let todayHolder = [];
+  let time;
   class Task {
     constructor(name, description, time, important) {
       this.name = name;
@@ -28,7 +29,7 @@ const addTask = () => {
      <ul>
       <li>Task: ${this.name}</li>
       <li>Description: ${this.description}</li>
-      <li>Time to: ${this.time}</li>
+      <li class="timeToDo">Time to: ${this.time}</li>
       <li>Important: ${this.important}</li>
              
       </ul> 
@@ -43,9 +44,10 @@ const addTask = () => {
       `;
 
       main.appendChild(task);
+      allTasksHolder.push(task);
     }
   }
-  const testTask = new Task("test");
+  const testTask = new Task("test", "XD", "2023-01-27", "YES");
   testTask.showAtTaskList();
 
   formButton.addEventListener("click", () => {
@@ -130,7 +132,7 @@ const addTask = () => {
                   <ul>
                    <li>Task: ${taskName.value}</li>
                    <li>Description: ${taskDescription.value}</li>
-                   <li>Time to: ${taskDate.value}</li>
+                   <li class="timeToDo">Time to: ${taskDate.value}</li>
                    <li>Important: ${taskPriority.value}</li>
  
                    </ul>
@@ -152,37 +154,57 @@ const addTask = () => {
       });
     }
   });
+  const dateFunction = () => {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
 
+    if (month < 10) {
+      time = `  <li class="timeToDo">Time to: ${year}-0${
+        month + 1
+      }-${day}</li>`;
+    } else {
+      time = `  <li class="timeToDo">Time to: ${year}-${month + 1}-${day}</li>`;
+    }
+
+    setTimeout(dateFunction, 100000);
+  };
+  dateFunction();
   todayTasksButton.addEventListener("click", () => {
-    const tasks = document.querySelectorAll(".task");
-    tasks.forEach((element) => {
-      if (todayHolder.includes(element)) {
-        return;
+    const tasksDate = document.querySelectorAll(".timeToDo");
+    for (let i = 0; i < tasksDate.length; i++) {
+      if (tasksDate[i] == time) {
+        todayHolder.push(tasksDate[i]);
       } else {
-        todayHolder.push(element);
+        console.log("ni ma");
       }
-    });
-    for (let i = 0; i < todayHolder.length; i++) {
-      todayTasksArea.appendChild(todayHolder[i]);
     }
+    console.log(tasksDate[0]);
+    console.log(time);
+    console.log(tasksDate);
+    console.log(todayHolder);
   });
-  showAllTasks.addEventListener("click", () => {
-    const tasks = document.querySelectorAll(".task");
+  // showAllTasks.addEventListener("click", () => {
+  //   const tasks = document.querySelectorAll(".task");
 
-    tasks.forEach((element) => {
-      if (todayHolder.includes(element)) {
-        return;
-      } else {
-        // if () {
-        //   todayHolder.push(element);
-        // } else {
-        //   console.log("ni ma");
-        // }
-      }
-    });
-    for (let i = 0; i < todayHolder.length; i++) {
-      showTasks.appendChild(todayHolder[i]);
-    }
-  });
+  //   tasks.forEach((element) => {
+  //     if (todayHolder.includes(element)) {
+  //       return;
+  //     } else {
+  //       // if () {
+  //       //   todayHolder.push(element);
+  //       // } else {
+  //       //   console.log("ni ma");
+  //       // }
+  //     }
+  //   });
+  //   for (let i = 0; i < todayHolder.length; i++) {
+  //     showTasks.appendChild(todayHolder[i]);
+  //   }
+  // });
 };
 export default addTask;
