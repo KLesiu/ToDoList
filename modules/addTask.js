@@ -9,6 +9,11 @@ const addTask = () => {
   const showError = document.querySelector(".error");
   const main = document.querySelector("#taskArea");
   const editFormButton = document.querySelector(".editFormButton");
+  const todayTasksButton = document.querySelector("#todayTasks");
+  const todayTasksArea = document.querySelector("#todayTaskArea");
+  const showAllTasks = document.querySelector("#allTasks");
+
+  let todayHolder = [];
   class Task {
     constructor(name, description, time, important) {
       this.name = name;
@@ -140,12 +145,44 @@ const addTask = () => {
              <button class="task-delete">Delete</button>
              <button class="task-edit">Edit</button>
                   `;
-            main.replaceChild(newChild, parentEdit);
+            // main.replaceChild(newChild, parentEdit);
+            parentEdit.replaceWith(newChild);
             showForm.classList.add("hidden");
             showForm.classList.remove("absolute");
           });
         });
       });
+    }
+  });
+
+  todayTasksButton.addEventListener("click", () => {
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach((element) => {
+      if (todayHolder.includes(element)) {
+        return;
+      } else {
+        todayHolder.push(element);
+        console.log(todayHolder);
+      }
+    });
+    for (let i = 0; i < todayHolder.length; i++) {
+      todayTasksArea.appendChild(todayHolder[i]);
+      console.log(i);
+    }
+  });
+  showAllTasks.addEventListener("click", () => {
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach((element) => {
+      if (todayHolder.includes(element)) {
+        return;
+      } else {
+        todayHolder.push(element);
+        console.log(todayHolder);
+      }
+    });
+    for (let i = 0; i < todayHolder.length; i++) {
+      showTasks.appendChild(todayHolder[i]);
+      console.log(i);
     }
   });
 };
