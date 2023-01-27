@@ -43,7 +43,6 @@ const addTask = () => {
       `;
 
       main.appendChild(task);
-      console.log(this.name);
     }
   }
   const testTask = new Task("test");
@@ -65,13 +64,11 @@ const addTask = () => {
         `${taskPriority.value}`
       );
       taskDiv.showAtTaskList();
-      console.log(taskDiv);
 
       const makeDone = document.querySelectorAll(".done");
-      console.log(makeDone);
+
       makeDone.forEach((element) => {
         element.addEventListener("click", (e) => {
-          console.log(e.target);
           if (element.parentElement.classList.contains("done")) {
             element.parentElement.style = "background-color:white";
             element.style = `position: absolute;
@@ -98,6 +95,7 @@ const addTask = () => {
           // popUpDelete.classList.remove("hidden");
 
           const parent = element.parentElement;
+
           // const popUpDeleteYes = document.querySelector(".Yes-Delete");
           // const popUpDeleteNo = document.querySelector(".No-Delete");
           main.removeChild(parent);
@@ -162,27 +160,28 @@ const addTask = () => {
         return;
       } else {
         todayHolder.push(element);
-        console.log(todayHolder);
       }
     });
     for (let i = 0; i < todayHolder.length; i++) {
       todayTasksArea.appendChild(todayHolder[i]);
-      console.log(i);
     }
   });
   showAllTasks.addEventListener("click", () => {
     const tasks = document.querySelectorAll(".task");
+
     tasks.forEach((element) => {
       if (todayHolder.includes(element)) {
         return;
       } else {
-        todayHolder.push(element);
-        console.log(todayHolder);
+        // if () {
+        //   todayHolder.push(element);
+        // } else {
+        //   console.log("ni ma");
+        // }
       }
     });
     for (let i = 0; i < todayHolder.length; i++) {
       showTasks.appendChild(todayHolder[i]);
-      console.log(i);
     }
   });
 };
