@@ -1,6 +1,6 @@
 import showSection from "./modules/dom.js";
 import addTask from "./modules/addTask.js";
-// import todayTask from "./modules/todayTask.js";
+import project from "./modules/project.js";
 showSection();
 addTask();
-// todayTask();
+project();

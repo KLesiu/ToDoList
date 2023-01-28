@@ -108,8 +108,18 @@ main {
 .projectContainer {
   background-color: white;
   border-radius: 10px;
-  height: 100%;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  min-height: 100%;
+  padding: 2%;
+  text-align: center;
   width: 100%;
+}
+.projectContainer h2 {
+  font-size: 35px;
+  font-weight: 700;
 }
 .form {
   align-items: center;
@@ -217,19 +227,38 @@ ul {
   width: 40%;
   height: 50px;
 }
-.Yes-Delete {
-  background-color: green;
-}
-.No-Delete {
-  background-color: rgb(202, 202, 38);
-}
-.hidden {
-  display: none;
-}
+
 .absolute {
   background-color: rgb(255, 255, 255);
   left: 15%;
   position: absolute;
   top: 20%;
   z-index: 2;
+}
+.projectContainer h2,
+.projectContainer h3 {
+  width: 100%;
+}
+.projectContainer .task {
+  background-color: black;
+  box-shadow: 5px 5px 5px gray;
+  color: white;
+  height: 150px;
+  width: 18%;
+}
+#projectButtonTask,
+#addProjectButton {
+  background-color: rgb(177, 135, 22);
+}
+.form-project {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+.form-project h1 {
+  width: 100%;
+}
+.hidden {
+  display: none;
 }
