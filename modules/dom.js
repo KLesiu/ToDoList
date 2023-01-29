@@ -12,20 +12,20 @@ const showSection = () => {
 
   showAllTasks.addEventListener("click", () => {
     showFormArea.classList.add("hidden");
-    showProject.classList.add("hidden");
+    // showProject.classList.add("hidden");
     showAllTasksArea.classList.toggle("hidden");
     todayTasks.classList.add("hidden");
   });
 
   showAddTaskForm.addEventListener("click", () => {
     showFormArea.classList.toggle("hidden");
-    showProject.classList.add("hidden");
+    // showProject.classList.add("hidden");
     showAllTasksArea.classList.add("hidden");
     todayTasks.classList.add("hidden");
   });
   showProjectArea.addEventListener("click", () => {
     showFormArea.classList.add("hidden");
-    showProject.classList.toggle("hidden");
+    // showProject.classList.toggle("hidden");
     showAllTasksArea.classList.add("hidden");
     todayTasks.classList.add("hidden");
   });
@@ -35,7 +35,7 @@ const showSection = () => {
   showTodayTasks.addEventListener("click", () => {
     todayTasks.classList.toggle("hidden");
     showAllTasksArea.classList.add("hidden");
-    showProject.classList.add("hidden");
+    // showProject.classList.add("hidden");
     showFormArea.classList.add("hidden");
   });
 };

@@ -262,3 +262,7 @@ ul {
 .hidden {
   display: none;
 }
+.tasks-holder {
+  height: 70%;
+  width: 100%;
+}
