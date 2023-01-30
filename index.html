@@ -33,15 +33,8 @@
 
           <li id="allTasks">All Tasks</li>
         </ul>
-        <ul class="projectList">
-          <h3 class="project">
-            Projects
-            <span class="material-symbols-outlined"> expand_more </span>
-          </h3>
-          <div class="li-holder-project"><li>Default</li></div>
-        </ul>
+
         <button id="buttonTask">Add Task</button>
-        <button id="buttonProject">Start new project</button>
       </nav>
       <div class="form hidden">
         <h2><input id="firstInput" type="text" name="name" value="Name" /></h2>
@@ -56,22 +49,9 @@
 
         <p class="error"></p>
       </div>
-      <div class="form form-project hidden">
-        <h1>Project</h1>
-        <label for="title">Write a title of your project</label>
-        <input type="text" id="addNewProjectForm" name="title" />
-        <button id="addProjectButton" type="submit">Add project</button>
-      </div>
+
       <main id="taskArea" class="hidden"></main>
       <main id="todayTaskArea" class="hidden"></main>
-      <main id="projectArea" class="hidden">
-        <div class="projectContainer">
-          <h2>Title</h2>
-          <button id="projectButtonTask">New Task</button>
-          <h3>Tasks:</h3>
-          <div class="tasks-holder"></div>
-        </div>
-      </main>
     </div>
 
     <script type="module" src="app.js"></script>

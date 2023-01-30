@@ -235,21 +235,7 @@ ul {
   top: 20%;
   z-index: 2;
 }
-.projectContainer h2,
-.projectContainer h3 {
-  width: 100%;
-}
-.projectContainer .task {
-  background-color: black;
-  box-shadow: 5px 5px 5px gray;
-  color: white;
-  height: 150px;
-  width: 18%;
-}
-#projectButtonTask,
-#addProjectButton {
-  background-color: rgb(177, 135, 22);
-}
+
 .form-project {
   align-items: center;
   display: flex;
@@ -261,8 +247,4 @@ ul {
 }
 .hidden {
   display: none;
-}
-.tasks-holder {
-  height: 70%;
-  width: 100%;
 }

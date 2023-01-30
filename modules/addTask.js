@@ -7,12 +7,14 @@ const addTask = () => {
   const showTasks = document.querySelector("#taskArea");
   const showForm = document.querySelector(".form");
   const showError = document.querySelector(".error");
-
+  let tasks;
   const todayTasksButton = document.querySelector("#todayTasks");
   const todayTasksArea = document.querySelector("#todayTaskArea");
   const showAllTasks = document.querySelector("#allTasks");
+
   let allTasksHolder = [];
   let todayTasksHolder = [];
+  let numberOfTasks;
   let time;
   class Task {
     constructor(name, description, time, important) {
@@ -43,11 +45,22 @@ const addTask = () => {
       `;
       task.contentEditable = true;
       showTasks.appendChild(task);
+
+      tasks =
+        document.querySelectorAll(".task") || document.querySelector(".task");
+      console.log(tasks);
+      localStorage.setItem(`task${tasks.length}`, `${this.name}`);
+      localStorage.setItem(`task${tasks.length}.${1}`, `${this.description}`);
+      localStorage.setItem(`task${tasks.length}.${2}`, `${this.time}`);
+      localStorage.setItem(`task${tasks.length}.${3}`, `${this.important}`);
+
+      numberOfTasks = localStorage.setItem("number", `${tasks.length}`);
+
       allTasksHolder.push({ name: task, date: this.time });
     }
   }
-  const testTask = new Task("test", "XD", "2023-01-27", "YES");
-  testTask.showAtTaskList();
+  // const testTask = new Task("test", "XD", "2023-01-27", "YES");
+  // testTask.showAtTaskList();
 
   formButton.addEventListener("click", () => {
     if (
@@ -69,21 +82,21 @@ const addTask = () => {
       const makeDone = document.querySelectorAll(".done");
 
       makeDone.forEach((element) => {
-        element.addEventListener("click", (e) => {
+        element.addEventListener("click", () => {
           if (element.parentElement.classList.contains("done")) {
             element.parentElement.style = "background-color:white";
             element.style = `position: absolute;
-        top: 0;
-        right: 10px;
-        font-size: 30px;color:green;`;
+          top: 0;
+          right: 10px;
+          font-size: 30px;color:green;`;
             element.parentElement.classList.remove("done");
             element.innerHTML = "done";
           } else {
             element.parentElement.style = "background-color:green;";
             element.style = `position: absolute;
-          top: 0;
-          right: 10px;
-          font-size: 30px;color:red;`;
+            top: 0;
+            right: 10px;
+            font-size: 30px;color:red;`;
             element.innerHTML = "reply";
             element.parentElement.classList.add("done");
           }
@@ -93,6 +106,7 @@ const addTask = () => {
       deleteTask.forEach((element) => {
         element.addEventListener("click", () => {
           const parent = element.parentElement;
+
           if (parent.parentElement == showTasks) {
             showTasks.removeChild(parent);
           } else {
@@ -108,6 +122,7 @@ const addTask = () => {
       showTasks.classList.remove("hidden");
       showError.innerHTML = "";
     }
+    showForm.classList.remove("active-task");
   });
   const dateFunction = () => {
     const date = new Date();
@@ -120,7 +135,7 @@ const addTask = () => {
     } else {
       time = `${year}-${month + 1}-${day}`;
     }
-
+    console.log(time);
     setTimeout(dateFunction, 100000);
   };
   dateFunction();
@@ -142,5 +157,25 @@ const addTask = () => {
       showTasks.appendChild(allTasksHolder[i].name);
     }
   });
+  let getNumber = +localStorage.getItem("number");
+  console.log(getNumber);
+  const getStorage = () => {
+    for (let i = 1; i <= getNumber; i++) {
+      const storageTask = document.createElement("div");
+      let storageTaskName = localStorage.getItem(`task${i}`);
+      let storageTaskDescription = localStorage.getItem(`task${i}.1`);
+      let storageTaskTime = localStorage.getItem(`task${i}.2`);
+      let storageTaskImportant = localStorage.getItem(`task${i}.3`);
+      const task = new Task(
+        storageTaskName,
+        storageTaskDescription,
+        storageTaskTime,
+        storageTaskImportant
+      );
+      task.showAtTaskList();
+    }
+  };
+  getStorage();
 };
 export default addTask;
+1087;
