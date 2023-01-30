@@ -14,7 +14,7 @@ const addTask = () => {
 
   let allTasksHolder = [];
   let todayTasksHolder = [];
-  let numberOfTasks;
+  let numberOfTasks = +localStorage.getItem("number");
   let time;
   class Task {
     constructor(name, description, time, important) {
@@ -59,8 +59,6 @@ const addTask = () => {
       allTasksHolder.push({ name: task, date: this.time });
     }
   }
-  // const testTask = new Task("test", "XD", "2023-01-27", "YES");
-  // testTask.showAtTaskList();
 
   formButton.addEventListener("click", () => {
     if (
@@ -106,11 +104,17 @@ const addTask = () => {
       deleteTask.forEach((element) => {
         element.addEventListener("click", () => {
           const parent = element.parentElement;
-
+          const name = element.parentElement.firstChild;
+          console.log(name.textContent);
           if (parent.parentElement == showTasks) {
             showTasks.removeChild(parent);
           } else {
             todayTasksArea.removeChild(parent);
+          }
+          for (let i = 1; i < numberOfTasks; i++) {
+            if (localStorage.removeItem(`task${i}`, name.textContent)) {
+              localStorage.removeItem(`task${i}`, name.textContent);
+            }
           }
         });
       });
@@ -161,7 +165,6 @@ const addTask = () => {
   console.log(getNumber);
   const getStorage = () => {
     for (let i = 1; i <= getNumber; i++) {
-      const storageTask = document.createElement("div");
       let storageTaskName = localStorage.getItem(`task${i}`);
       let storageTaskDescription = localStorage.getItem(`task${i}.1`);
       let storageTaskTime = localStorage.getItem(`task${i}.2`);
@@ -176,6 +179,12 @@ const addTask = () => {
     }
   };
   getStorage();
+  // const li = document.querySelectorAll("li");
+  // li.forEach((element) => {
+  //   element.addEventListener("keydown", () => {
+  //     console.log("siema");
+  //   });
+  // });
 };
 export default addTask;
 1087;
