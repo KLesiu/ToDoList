@@ -1,5 +1,5 @@
-import showSection from "./modules/dom.js";
-import addTask from "./modules/addTask.js";
+import buildDom from "./modules/dom.js";
 
-showSection();
-addTask();
+buildDom();
+import addTaskFunction from "./modules/addTask.js";
+addTaskFunction();
