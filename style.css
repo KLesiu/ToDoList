@@ -262,3 +262,43 @@ ul {
 #saveBut:hover {
   opacity: 1;
 }
+@media only screen and (max-width: 700px) {
+  header {
+    display: block;
+  }
+  #saveBut {
+    margin-left: 83%;
+    margin-top: 10px;
+    width: 15%;
+  }
+  nav {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    font-size: 20px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 100%;
+    height: 200px;
+  }
+  #buttonTask {
+    margin-top: 10%;
+  }
+  .container {
+    display: block;
+  }
+  .form {
+    margin-left: 0;
+    width: 100%;
+  }
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .task {
+    min-height: 230px;
+    width: 42%;
+  }
+}

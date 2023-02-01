@@ -100,8 +100,7 @@ const addTaskFunction = () => {
     button.innerText = "Delete";
     newTask.appendChild(button);
     tasksHolder.push(newTask);
-    console.log(tasks);
-    console.log(tasksHolder);
+
     generateTask();
     showTasks();
   };
@@ -124,8 +123,18 @@ const addTaskFunction = () => {
 
     if (month < 10) {
       time = `${year}-0${month + 1}-${day}`;
+      console.log("1");
+    }
+    if (day < 10) {
+      time = `${year}-${month + 1}-0${day}`;
+      console.log("2");
+    }
+    if (month < 10 && day < 10) {
+      time = `${year}-0${month + 1}-0${day}`;
+      console.log("3");
     } else {
       time = `${year}-${month + 1}-${day}`;
+      console.log("4");
     }
     return time;
   };
@@ -196,15 +205,17 @@ const addTaskFunction = () => {
   });
   todayTasks.addEventListener("click", () => {
     dateFunction();
+    console.log(time);
     taskArea.classList.remove("hidden");
     tasksHolder.forEach((element) => {
       element.classList.add("hidden");
     });
-    console.log(tasks.length);
+
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].date === time) {
         tasksHolder[i].classList.remove("hidden");
       }
+      console.log(tasks[i].date);
     }
   });
   allTasks.addEventListener("click", () => {
